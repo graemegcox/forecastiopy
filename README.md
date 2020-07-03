@@ -6,6 +6,11 @@
 
 ForcastIO Python
 ===================
+
+**Darksky is discontinuing their API.** This is for maintenance only.
+
+This is a fork of David Ervideira's forecastiopy with timeout and error handling fixes.
+
 A Python wrapper for the [darksky.net](https://darksky.net) API (previously forecast.io).
 This started as port of my other wrapper [ForecastIO-Lib-Java](https://github.com/dvdme/forecastio-lib-java)
 but as the languages are so different, this one took its own way. 

@@ -168,14 +168,16 @@ class ForecastIO(object):
         """
         try:
             headers = {'Accept-Encoding': 'gzip, deflate'}
-            response = requests.get(request_url, headers=headers)
+            response = requests.get(request_url, headers=headers, timeout=10) # Adds timeout in seconds
         except requests.exceptions.Timeout as ext:
             log.error('Error: Timeout', ext)
+            raise
         except requests.exceptions.TooManyRedirects as extmr:
             log.error('Error: TooManyRedirects', extmr)
+            raise
         except requests.exceptions.RequestException as ex:
             log.error('Error: RequestException', ex)
-            sys.exit(1)
+            raise
 
         try:
             self.cache_control = response.headers['Cache-Control']
